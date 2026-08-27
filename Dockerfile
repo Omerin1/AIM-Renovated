@@ -1,4 +1,4 @@
-FROM openjdk:17-jdk-slim
+FROM eclipse-temurin:17-jdk-jammy
 WORKDIR /app
 COPY . .
 RUN javac -d bin *.java || javac -d bin src/aimclassic/*.java src/aimclassic/Models/*.java || javac -d bin aimclassic/*.java
