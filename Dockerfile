@@ -1,6 +1,6 @@
 FROM eclipse-temurin:17-jdk-jammy
 WORKDIR /app
 COPY . .
-RUN javac -d bin *.java || javac -d bin src/aimclassic/*.java src/aimclassic/Models/*.java || javac -d bin aimclassic/*.java
+RUN javac -d bin *.java
 EXPOSE 5190
-CMD ["java", "-cp", "bin", "aimclassic.Hub"]
+CMD ["java", "-cp", "bin", "Hub"]
