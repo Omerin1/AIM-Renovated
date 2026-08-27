@@ -1,8 +1,7 @@
 FROM eclipse-temurin:17-jdk-jammy
 WORKDIR /app
 COPY . .
-# Dosyaları derleyip doğrudan paket yapısına uygun klasöre koyuyoruz
-RUN mkdir -p bin/aimclassic && javac -d bin *.java && cp bin/*.class bin/aimclassic/ 2>/dev/null || true
+# Dosyaları Java paket yapısına uygun alt klasöre taşıyıp derliyoruz
+RUN mkdir -p src/aimclassic && mv *.java src/aimclassic/ && javac -d bin src/aimclassic/*.java
 EXPOSE 5190
-# Hem düz hem de paketli olarak çalıştırmayı deniyoruz
 CMD ["java", "-cp", "bin", "aimclassic.Hub"]
